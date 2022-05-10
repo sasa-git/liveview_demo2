@@ -9,7 +9,7 @@ services:
       - TEST_DB_USER=root
       - TEST_DB_PASSWORD=p@ssword
       - TEST_DB_HOST=db
-      - TEST_DB_NAME=sample_test
+      - TEST_DB_NAME=chirp_test
     volumes:
       - .:/app
       - phx-node_modules:/app/assets/node_modules
@@ -24,8 +24,8 @@ services:
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=p@ssword
-      - MYSQL_DATABASE=sample_dev
-      - MYSQL_USER=sample
+      - MYSQL_DATABASE=chirp_dev
+      - MYSQL_USER=chirp
       - MYSQL_PASSWORD=p@ssword
       - TZ='Asia/Tokyo'
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
