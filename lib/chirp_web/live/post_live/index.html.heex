@@ -43,3 +43,9 @@
 </table>
 
 <span><%= live_patch "New Post", to: Routes.post_index_path(@socket, :new) %></span>
+
+<section class="row">
+  <%= live_component ModalComponent, id: "component-1" do %>
+    <p>Content</p>
+  <% end %>
+</section>
