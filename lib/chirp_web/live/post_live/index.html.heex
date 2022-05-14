@@ -45,7 +45,32 @@
 <span><%= live_patch "New Post", to: Routes.post_index_path(@socket, :new) %></span>
 
 <section class="row">
-  <%= live_component ModalComponent, id: "component-1" do %>
+  <%= live_component SampleComponent, id: "component-1" do %>
     <p>Content</p>
+  <% end %>
+</section>
+
+<section>
+  <div>
+    <button
+      phx-click="open"
+      phx-target="#modal-one"
+      type="button"
+      class="mr-8 btn btn-primary">
+      Open modal one
+    </button>
+  
+    <button
+      phx-click="open"
+      phx-target="#modal-two"
+      type="button"
+      class="btn btn-primary">
+      Open modal two
+    </button>
+  </div>
+  <%= live_component Components.Modal, id: "modal-one" do %>
+  <% end %>
+
+  <%= live_component Components.Modal, id: "modal-two" do %>
   <% end %>
 </section>

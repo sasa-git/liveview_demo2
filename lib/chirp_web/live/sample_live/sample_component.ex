@@ -1,4 +1,4 @@
-defmodule ModalComponent do
+defmodule SampleComponent do
   use Phoenix.LiveComponent
 
   def mount(socket) do
