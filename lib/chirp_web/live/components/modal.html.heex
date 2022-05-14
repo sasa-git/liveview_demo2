@@ -3,13 +3,12 @@
 
   <%= if @state == "OPEN" do %>
   <.modal_sample>
-    <div phx-click-away="close" phx-target={@myself} class="phx-modal-content">
+    <div phx-click-away={Phoenix.LiveView.JS.dispatch("click", to: "#close")} class="phx-modal-content">
       <a id="close" href="#" class="phx-modal-close" phx-click="close" phx-target={@myself}>✖</a>
       Fooo! at <%= @id %>, Now state "<%= @state %>"
       <br />
       <button
-      phx-click="close"
-      phx-target={@myself}
+      phx-click={Phoenix.LiveView.JS.dispatch("click", to: "#close")}
       type="button"
       class="btn btn-primary">
       Close
