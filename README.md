@@ -21,6 +21,9 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 ## Link
 https://qiita.com/akkiii/items/6b3f2bd56d9f091ba53a
 
+TopBar  
+https://buunguyen.github.io/topbar/
+
 ## Command
 `docker compose run --rm app mix phx.new . --app chirp --database mysql `  
 `docker compose run --rm app mix phx.gen.live Timeline Post posts username body likes_count:integer reposts_count:integer`
