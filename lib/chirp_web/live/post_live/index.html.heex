@@ -44,6 +44,8 @@
 
 <span><%= live_patch "New Post", to: Routes.post_index_path(@socket, :new) %></span>
 
+<!-- sandbox -->
+
 <section class="row">
   <%= live_component SampleComponent, id: "component-1" do %>
     <p>Content</p>
@@ -68,9 +70,17 @@
       Open modal two
     </button>
   </div>
-  <%= live_component Components.Modal, id: "modal-one" do %>
-  <% end %>
+  <%=# live_component Components.Modal, id: "modal-one" do %>
+  <%# end %>
 
-  <%= live_component Components.Modal, id: "modal-two" do %>
-  <% end %>
+  <%=# live_component Components.Modal, id: "modal-two" do %>
+  <%# end %>
+  <%# letに、render_slot(@inner_block, @state)での@stateが返り値として格納される。第二引数がletに格納される %>
+  <.live_component module={Components.Modal} id="modal-one" let={local_state}>
+    MODAL ONE <%= local_state %>
+  </.live_component>
+
+  <.live_component module={Components.Modal} id="modal-two" let={local_state}>
+    MODAL TWO <%= local_state %>
+  </.live_component>
 </section>

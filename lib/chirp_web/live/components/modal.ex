@@ -1,4 +1,5 @@
 defmodule Components.Modal do
+  use ChirpWeb, :live_view
   use Phoenix.LiveComponent
 
   @impl true

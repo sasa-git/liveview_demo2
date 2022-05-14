@@ -32,6 +32,11 @@ defmodule ChirpWeb.PostLive.Index do
     |> assign(:post, nil)
   end
 
+  defp apply_action(socket, :confirm_1, _params) do
+    socket
+    |> assign(:page_title, "Confirm")
+  end
+
   @impl true
   def handle_event("delete", %{"id" => id}, socket) do
     post = Timeline.get_post!(id)
