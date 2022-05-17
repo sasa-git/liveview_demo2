@@ -71,6 +71,58 @@ defmodule ChirpWeb.LiveHelpers do
     """
   end
 
+  def modal_sample2(assigns) do
+    assigns = assign_new(assigns, :return_to, fn -> nil end)
+
+    ~H"""
+    <div id={@id} class="modal phx-modal" style="display: none;">
+      <div class="phx-modal-content fade-in-scale"
+      phx-click-away={Phoenix.LiveView.JS.hide(to: "##{@id}", transition: "fade-out")}
+      phx-window-keydown={Phoenix.LiveView.JS.hide(to: "##{@id}", transition: "fade-out")}
+      phx-key="escape"
+      >
+        My Modal #<%= @id %>
+        Detail: <a href="https://hexdocs.pm/phoenix_live_view/bindings.html#js-commands" target="_blank">https://hexdocs.pm/phoenix_live_view/bindings.html#js-commands</a>
+        <button phx-click={Phoenix.LiveView.JS.hide(to: "##{@id}", transition: "fade-out")}>
+          hide modal
+        </button>
+      </div>
+    </div>
+    
+    <button phx-click={Phoenix.LiveView.JS.show(to: "##{@id}", transition: "fade-in")}>
+      show modal
+    </button>
+    
+    <button phx-click={Phoenix.LiveView.JS.hide(to: "##{@id}", transition: "fade-out")}>
+      hide modal
+    </button>
+    
+    <button phx-click={Phoenix.LiveView.JS.toggle(to: "##{@id}", in: "fade-in", out: "fade-out")}>
+      toggle modal
+    </button>
+    """
+  end
+
+  def modal_sample3(assigns) do
+    assigns = assign_new(assigns, :return_to, fn -> nil end)
+
+    ~H"""
+    <div id={@id} class="modal phx-modal" style="display: none;">
+      <div class="phx-modal-content fade-in-scale"
+      phx-click-away={Phoenix.LiveView.JS.hide(to: "##{@id}", transition: "fade-out")}
+      phx-window-keydown={Phoenix.LiveView.JS.hide(to: "##{@id}", transition: "fade-out")}
+      phx-key="escape"
+      >
+        <%= render_slot(@inner_block, @id) %>
+      </div>
+    </div>
+    
+    <button phx-click={Phoenix.LiveView.JS.show(to: "##{@id}", transition: "fade-in")}>
+      show modal
+    </button>
+    """
+  end
+
   defp hide_modal(js \\ %JS{}) do
     js
     |> JS.hide(to: "#modal", transition: "fade-out")
