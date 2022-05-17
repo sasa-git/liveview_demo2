@@ -8,6 +8,7 @@ defmodule SampleComponent do
   def render(assigns) do
     ~H"""
     <div id={@id}>
+      @myself=<%= @myself %>
       <%= render_block(@inner_block, []) %>
     </div>
     """

@@ -2,8 +2,8 @@
   <%= render_slot(@inner_block, @state) %>
 
   <%= if @state == "OPEN" do %>
-  <.modal_sample>
-    <div phx-click-away={Phoenix.LiveView.JS.dispatch("click", to: "#close")} class="phx-modal-content">
+  <.modal_sample id={@id} target={@myself}>
+    <div>
       <a id="close" href="#" class="phx-modal-close" phx-click="close" phx-target={@myself}>✖</a>
       Fooo! at <%= @id %>, Now state "<%= @state %>"
       <br />

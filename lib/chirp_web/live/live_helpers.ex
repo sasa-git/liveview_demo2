@@ -59,11 +59,12 @@ defmodule ChirpWeb.LiveHelpers do
     <div id="modal" class="phx-modal fade-in" phx-remove={hide_modal()}>
       <div
         id="modal-content"
-        class="fade-in-scale m-0"
-        phx-click-away={JS.dispatch("click", to: "#close")}
+        class="fade-in-scale phx-modal-content"
+        phx-click-away={Phoenix.LiveView.JS.push("close", target: @target)}
         phx-window-keydown={JS.dispatch("click", to: "#close")}
         phx-key="escape"
       >
+        @id=<%= @id %>, @target=<%= @target %> 
         <%= render_slot(@inner_block) %>
       </div>
     </div>
